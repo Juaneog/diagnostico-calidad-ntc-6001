@@ -1,5 +1,5 @@
 -- ==========================================================
--- Plataforma de Diagnóstico de Calidad Multi-Norma
+-- Plataforma de Diagnóstico de Calidad NTC 6001
 -- Migración 001: Esquema inicial MySQL
 -- Ejecutar: mysql -u <user> -p <database> < 001_schema.sql
 -- ==========================================================

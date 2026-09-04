@@ -16,16 +16,8 @@ import appManualContent from './MANUAL_APP.md?raw';
 import InteractiveGuideModal from './components/InteractiveGuideModal';
 import GuidedTourOverlay from './components/GuidedTourOverlay';
 
-const APP_MODE = import.meta.env.VITE_APP_MODE || 'default';
-const API_KEY_STORAGE_KEYS: Record<string, string> = {
-  sustainable: 'geminiApiKey_sustainable',
-};
-
-const getApiKeyStorageKey = (): string => API_KEY_STORAGE_KEYS[APP_MODE] || 'geminiApiKey_default';
-const getModeLabel = (): string => {
-  if (APP_MODE === 'sustainable') return 'Sustainable';
-  return 'esta aplicación';
-};
+const getApiKeyStorageKey = (): string => 'geminiApiKey_default';
+const getModeLabel = (): string => 'esta aplicación';
 
 const AUTH_STORAGE_KEY = 'diagnosticoAuthenticated';
 
@@ -1165,9 +1157,7 @@ const App: React.FC = () => {
               {import.meta.env.VITE_APP_TITLE || 'Plataforma de Diagnóstico de Calidad'}
             </h1>
             <p className="mt-3 text-lg text-gray-600">
-              {import.meta.env.VITE_APP_MODE === 'sustainable'
-                ? 'Autoevaluación de Sostenibilidad con Historial y Plan de Acción por IA'
-                : 'Autoevaluación con Historial y Plan de Acción por IA'}
+              Autoevaluación con Historial y Plan de Acción por IA
             </p>
           </div>
           <div className="flex items-center gap-3">
@@ -1257,7 +1247,6 @@ const App: React.FC = () => {
            onClose={handleCloseGuideModal}
            guiaDeUsoContent={guiaDeUsoContent}
            ntc6001Content={ntc6001Content}
-           ntc6496Content=""
            appManualContent={appManualContent}
            onStartGuidedTour={handleStartGuidedTour}
          />

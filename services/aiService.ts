@@ -2,13 +2,8 @@ import { GoogleGenAI, Type } from "@google/genai";
 import { IDemographics, IResults, CommentsState, IActionPlan, ChecklistAnswersState, EvidenceStatus, IChatContext, IChatMessage, IChatFile, IClause, IsoStandard } from '../types';
 import { EVIDENCE_STATUS_OPTIONS, STANDARDS_CONFIG } from '../constants';
 
-const APP_MODE = import.meta.env.VITE_APP_MODE || 'default';
-const API_KEY_STORAGE_KEYS: Record<string, string> = {
-    sustainable: 'geminiApiKey_sustainable',
-};
-
 const getApiKeyStorageKey = (): string => {
-    return API_KEY_STORAGE_KEYS[APP_MODE] || 'geminiApiKey_default';
+    return 'geminiApiKey_default';
 };
 
 const getRuntimeApiKey = (): string => {

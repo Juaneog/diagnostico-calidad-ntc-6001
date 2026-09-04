@@ -1,5 +1,5 @@
 # 📖 GUÍA DE USO Y MANUAL DE USUARIO PASO A PASO
-## Plataforma de Diagnóstico de Calidad y Sostenibilidad Multi-Norma (NTC 6001 / NTC 6496 / NTC 6503)
+## Plataforma de Diagnóstico de Calidad (NTC 6001)
 
 **Documento Operativo del Auditor y Evaluador Final**  
 **Modelo de Documentación Adaptado:** ManField User Manual Standard (Anexo 1 - ManField Model)  
@@ -43,10 +43,10 @@
 
 ## 1. INTRODUCCIÓN
 
-La **Plataforma de Diagnóstico de Calidad y Sostenibilidad Multi-Norma** es una herramienta web interactiva diseñada para guiar a micro, pequeñas y medianas empresas (PyMEs), establecimientos gastronómicos y servicios de alojamiento en la evaluación y certificación de las normas colombianas **NTC 6001**, **NTC 6496** y **NTC 6503**.
+La **Plataforma de Diagnóstico de Calidad** es una herramienta web interactiva diseñada para guiar a micro, pequeñas y medianas empresas (PyMEs) en la evaluación y certificación de la norma colombiana **NTC 6001**.
 
 ### 1.1 Capacidades del Sistema
-- **Diagnóstico Multi-Norma Integrado:** Evaluación completa de NTC 6001, NTC 6496 y NTC 6503.
+- **Diagnóstico Integrado:** Evaluación completa de la NTC 6001.
 - **Cálculo de Cumplimiento Ponderado:** Algoritmo estadístico que pondera estados de implementación y evidencias documentales.
 - **Asistencia Virtual con IA:** Consultas normativas contextuales mediante Inteligencia Artificial (Google Gemini API).
 - **Generador de Planes de Acción:** Creación automatizada de matrices de tareas priorizadas (Alta, Media, Baja).
@@ -79,7 +79,7 @@ Al ingresar a la aplicación, el sistema verifica si existe una sesión activa. 
 El Dashboard principal está organizado en las siguientes secciones clave:
 - **Encabezado:** Muestra el título del sistema, la norma activa seleccionada y el botón de cierre de sesión.
 - **Tarjeta de Inicio de Diagnóstico:** Botón destacado **"+ Nuevo Diagnóstico"** para empezar una evaluación.
-- **Accesos a Manuales Normativos:** Botones **"Manual NTC 6001"** y **"Manual NTC 6496/6503"** para consultar las guías técnicas.
+- **Accesos a Manuales Normativos:** Botón **"Manual NTC 6001"** para consultar la guía técnica.
 - **Panel de Empresas Diagnosticadas:** Tarjetas con el historial de empresas evaluadas, mostrando Nombre, ID, Norma y Fecha del último informe.
 
 ---
@@ -97,11 +97,9 @@ El Dashboard principal está organizado en las siguientes secciones clave:
    - **Tamaño de la Empresa:** Micro, Pequeña, Mediana o Grande.
 3. *Autocompletado:* Si ingresa un ID de empresa que ya existe en el sistema, la plataforma le preguntará si desea cargar automáticamente los datos previamente guardados.
 
-### 4.2 Selección de Estándar Normativo
-Seleccione la norma técnica a evaluar según el sector:
+### 4.2 Estándar Normativo
+La plataforma evalúa la siguiente norma técnica:
 - 🏢 **NTC 6001:** Sistemas de gestión para micro y pequeñas empresas.
-- 🍽️ **NTC 6496:** Sostenibilidad para restaurantes y establecimientos gastronómicos.
-- 🏨 **NTC 6503:** Sostenibilidad para hoteles, hostales y alojamientos.
 
 ---
 
@@ -117,7 +115,7 @@ Para cada ítem o requisito de la norma, seleccione una opción:
 - ⚪ **No Aplica:** El requisito no es aplicable a la estructura de la empresa.
 
 ### 5.2 Verificación de Evidencias Documentales
-Debajo de cada pregunta encontrará una lista de casillas con las evidencias sugeridas por la norma (manuales, formatos, facturas, registros de agua/energía, permisos sanitarios, etc.). Marque aquellas casillas cuya evidencia exista y esté verificada.
+Debajo de cada pregunta encontrará una lista de casillas con las evidencias sugeridas por la norma (manuales, formatos, facturas, registros de procesos, actas, etc.). Marque aquellas casillas cuya evidencia exista y esté verificada.
 
 ### 5.3 Registro de Comentarios
 Utilice el campo de texto de comentarios para agregar detalles sobre la situación actual de la empresa o notas relevantes para el informe final.
@@ -134,7 +132,7 @@ En cada cláusula del cuestionario encontrará un **ícono de chat azul**.
 3. Puede escribir preguntas como:
    - *"¿Qué tipo de evidencia documental puedo usar para cumplir este punto?"*
    - *"¿Cómo implemento este requisito si mi empresa es de 3 empleados?"*
-   - *"Dame un ejemplo de política de sostenibilidad para este ítem."*
+   - *"Dame un ejemplo de política de calidad para este ítem."*
 4. La Inteligencia Artificial responderá en menos de 3 segundos con sugerencias prácticas alineadas a la NTC correspondiente.
 
 ---
@@ -200,7 +198,7 @@ En la parte inferior de la pantalla de resultados:
 - **Resultado Típico:** Cumplimiento del 65% en gestión operativa y brechas en la cláusula 8 (Gestión Financiera).
 - **Acción Sugerida por IA:** Implementación de flujo de caja mensual y formalización de perfil de cargos.
 
-### Ejemplo 2: Diagnóstico de un Restaurante Turístico (NTC 6496)
-- **Configuración:** Sector Gastronómico, NTC 6496.
-- **Resultado Típico:** Cumplimiento del 80% ambiental con recomendación en el manejo de Aceites Vegetales Usados (AVU).
-- **Acción Sugerida por IA:** Firma de convenio con gestor autorizado de AVU y capacitación al personal de cocina.
+### Ejemplo 2: Diagnóstico de una Pequeña Empresa de Servicios (NTC 6001)
+- **Configuración:** Tamaño Pequeña, Sector Servicios, NTC 6001.
+- **Resultado Típico:** Cumplimiento del 75% en liderazgo y planificación, con brechas en la cláusula de evaluación y mejora.
+- **Acción Sugerida por IA:** Implementación de indicadores de satisfacción del cliente y revisión gerencial trimestral.

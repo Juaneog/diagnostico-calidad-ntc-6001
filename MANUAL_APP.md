@@ -1,5 +1,5 @@
 # 📘 MANUAL DE INGENIERÍA Y DOCUMENTACIÓN TÉCNICA DEL SISTEMA
-## Plataforma de Diagnóstico de Calidad y Sostenibilidad Multi-Norma (NTC 6001 / NTC 6496 / NTC 6503)
+## Plataforma de Diagnóstico de Calidad (NTC 6001)
 
 **Documento de Especificación, Arquitectura, Calidad y Manual de Usuario**  
 **Modelo de Documentación Adaptado:** ManField Software Documentation Standard (ISO/IEC 25010 & IEEE Style)  
@@ -16,7 +16,7 @@
    - 2.1 Objetivo General
    - 2.2 Objetivos Específicos
 3. **MARCO TEÓRICO Y NORMATIVO**
-   - 3.1 Normas Técnicas Colombianas de Calidad y Sostenibilidad
+   - 3.1 Normas Técnicas Colombianas de Calidad
    - 3.2 Evaluación de Cumplimiento por Ponderación de Evidencias
    - 3.3 Asistencia Mediante Inteligencia Artificial Generativa
 4. **ALCANCE DEL SISTEMA**
@@ -44,7 +44,7 @@
 7. **IMPLEMENTACIÓN DEL SOFTWARE Y SEGURIDAD**
    - 7.1 Arquitectura Cliente-Servidor Multi-Capa REST
    - 7.2 Módulo de Seguridad y Encriptación de Contraseñas (PBKDF2 + Salt)
-   - 7.3 Aislamiento de Datos Multi-Usuario y Multi-Norma (`user_id` + `standard`)
+   - 7.3 Aislamiento de Datos Multi-Usuario (`user_id` + `standard`)
    - 7.4 Middleware CORS Universal y Manejo de Preflight `OPTIONS`
 8. **DISEÑO DE BASE DE DATOS Y ESQUEMA RELACIONAL (MYSQL)**
    - 8.1 Modelo Entidad-Relación (ER) y Diccionario de Datos
@@ -64,19 +64,19 @@
 
 ## 1. PLANTEAMIENTO DEL PROBLEMA
 
-La evaluación del cumplimiento normativo de calidad y sostenibilidad en micro, pequeñas y medianas empresas (MIPYMES) y establecimientos turísticos/gastronómicos en Colombia enfrenta múltiples obstáculos. Los métodos tradicionales basados en hojas de cálculo estáticas o formularios físicos suelen generar inconsistencias, falta de trazabilidad histórica, errores en el cálculo de ponderación de evidencias y dificultades en la interpretación técnica de los requisitos exigidos por las Normas Técnicas Colombianas (**NTC 6001**, **NTC 6496** y **NTC 6503**).
+La evaluación del cumplimiento normativo de calidad en micro, pequeñas y medianas empresas (MIPYMES) en Colombia enfrenta múltiples obstáculos. Los métodos tradicionales basados en hojas de cálculo estáticas o formularios físicos suelen generar inconsistencias, falta de trazabilidad histórica, errores en el cálculo de ponderación de evidencias y dificultades en la interpretación técnica de los requisitos exigidos por la Norma Técnica Colombiana **NTC 6001**.
 
-Adicionalmente, las organizaciones a menudo carecen de asesores expertos permanentes que traduzcan los hallazgos de auditoría en planes de acción ejecutables y priorizados. La falta de una herramienta computacional interactiva, accesible desde la web, con capacidades de análisis automatizado mediante Inteligencia Artificial y almacenamiento estructurado de evaluaciones previas aislado por usuario en base de datos relacional, limita la capacidad de las empresas para lograr y mantener certificaciones de calidad y sostenibilidad.
+Adicionalmente, las organizaciones a menudo carecen de asesores expertos permanentes que traduzcan los hallazgos de auditoría en planes de acción ejecutables y priorizados. La falta de una herramienta computacional interactiva, accesible desde la web, con capacidades de análisis automatizado mediante Inteligencia Artificial y almacenamiento estructurado de evaluaciones previas aislado por usuario en base de datos relacional, limita la capacidad de las empresas para lograr y mantener certificaciones de calidad.
 
-El presente software resuelve esta problemática proporcionando una plataforma integral multi-norma respaldada por un **Backend REST en Node.js/Express y MySQL en Hostinger**, que automatiza el ciclo completo de evaluación: registro seguro de usuarios, caracterización demográfica, auto-evaluación ponderada por cláusulas con verificación de evidencias, asistencia contextual mediante IA generativa, generación automática de planes de acción, centro de soporte técnico interactivo y exportación de informes en PDF.
+El presente software resuelve esta problemática proporcionando una plataforma integral respaldada por un **Backend REST en Node.js/Express y MySQL en Hostinger**, que automatiza el ciclo completo de evaluación: registro seguro de usuarios, caracterización demográfica, auto-evaluación ponderada por cláusulas con verificación de evidencias, asistencia contextual mediante IA generativa, generación automática de planes de acción, centro de soporte técnico interactivo y exportación de informes en PDF.
 
 ### 1.1. JUSTIFICACIÓN
 
 El desarrollo de esta plataforma se justifica por las siguientes razones clave:
-- **Impacto Empresarial y Regional:** Facilita el acceso de las MIPYMES y sector turismo/gastronomía a procesos de certificación de calidad y sostenibilidad de forma autónoma y guiada.
+- **Impacto Empresarial y Regional:** Facilita el acceso de las MIPYMES a procesos de certificación de calidad de forma autónoma y guiada.
 - **Seguridad y Persistencia Global:** Incorpora una base de datos relacional MySQL remota con encriptación PBKDF2 que garantiza la persistencia global de usuarios y diagnósticos desde cualquier dispositivo.
-- **Aislamiento Multi-Usuario y Multi-Norma:** Aísla de forma estricta las evaluaciones y empresas asociadas a cada cuenta de usuario mediante el atributo `user_id` y la norma activa `standard`.
-- **Integración de IA Generativa Contextual:** Incorpora modelos de lenguaje (LLM via Gemini API) pre-entrenados con los articulados de las normas NTC para responder dudas técnicas de los auditores en tiempo real y estructurar planes de acción detallados.
+- **Aislamiento Multi-Usuario:** Aísla de forma estricta las evaluaciones y empresas asociadas a cada cuenta de usuario mediante el atributo `user_id` y el estándar activo `standard`.
+- **Integración de IA Generativa Contextual:** Incorpora modelos de lenguaje (LLM via Gemini API) pre-entrenados con el articulado de la norma NTC 6001 para responder dudas técnicas de los auditores en tiempo real y estructurar planes de acción detallados.
 - **Centro Support/Manuales Interactivo:** Incluye un hub de manuales navegables en vivo con simuladores prácticos y tour guiado onboarding para acelerar la adopción por parte de los auditores.
 
 ---
@@ -84,10 +84,10 @@ El desarrollo de esta plataforma se justifica por las siguientes razones clave:
 ## 2. OBJETIVOS
 
 ### 2.1 Objetivo General
-Desarrollar y consolidar una plataforma web interactiva y multi-norma especializada en el diagnóstico de calidad y sostenibilidad empresarial (NTC 6001, NTC 6496, NTC 6503), respaldada por un Backend REST en Express, base de datos MySQL, autenticación encriptada y asistencia de Inteligencia Artificial para la evaluación, seguimiento y generación de planes de mejora continua.
+Desarrollar y consolidar una plataforma web interactiva especializada en el diagnóstico de calidad empresarial (NTC 6001), respaldada por un Backend REST en Express, base de datos MySQL, autenticación encriptada y asistencia de Inteligencia Artificial para la evaluación, seguimiento y generación de planes de mejora continua.
 
 ### 2.2 Objetivos Específicos
-- **Modelar dinámicamente** los cuestionarios y cláusulas técnicas de las normas NTC 6001 (Gestión para PyMEs), NTC 6496 (Sostenibilidad en Gastronomía) y NTC 6503 (Sostenibilidad en Alojamiento).
+- **Modelar dinámicamente** el cuestionario y las cláusulas técnicas de la norma NTC 6001 (Gestión para PyMEs).
 - **Implementar un algoritmo de ponderación de cumplimiento** que soporte estados de implementación (Cumple, Parcialmente, No Cumple, No Aplica) combinado con puntos de verificación de evidencias documentales.
 - **Diseñar una arquitectura de persistencia relacional en MySQL** que aísle las empresas y diagnósticos históricos según la cuenta del usuario autenticado (`user_id`).
 - **Desarrollar un módulo de autenticación seguro** en Node.js/Express con derivación de claves PBKDF2 y sal aleatoria.
@@ -99,10 +99,8 @@ Desarrollar y consolidar una plataforma web interactiva y multi-norma especializ
 
 ## 3. MARCO TEÓRICO Y NORMATIVO
 
-### 3.1 Normas Técnicas Colombianas de Calidad y Sostenibilidad
+### 3.1 Normas Técnicas Colombianas de Calidad
 - **NTC 6001:** Requisitos para un Sistema de Gestión en Micro y Pequeñas Empresas. Define requisitos de liderazgo, planificación, gestión de recursos, procesos operativos, evaluación y mejora.
-- **NTC 6496:** Requisitos de Sostenibilidad para Establecimientos Gastronómicos. Evalúa impactos ambientales (agua, energía, residuos), socioculturales y económicos.
-- **NTC 6503:** Requisitos de Sostenibilidad para Servicios de Alojamiento y Hospedaje. Establece criterios de sostenibilidad turística aplicables a hoteles, hostales y posadas.
 
 ### 3.2 Evaluación de Cumplimiento por Ponderación de Evidencias
 El modelo matemático de evaluación asigna un puntaje base según la respuesta del requisito ($R_i \in \{1.0, 0.5, 0.0\}$ para Cumple, Parcialmente, No Cumple) y ajusta la nota mediante el porcentaje de evidencias seleccionadas ($E_i \in [0, 1]$):
@@ -118,7 +116,7 @@ $$C_{total} = \frac{\sum_{k=1}^{N} C_k}{N} \times 100\%$$
 ## 4. ALCANCE DEL SISTEMA
 
 ### 4.1. AUDIENCIA
-- **Usuarios Primarios:** Auditores internos de calidad, gestores de sostenibilidad, gerentes y propietarios de PyMEs, hoteles y restaurantes.
+- **Usuarios Primarios:** Auditores internos de calidad, gerentes y propietarios de PyMEs.
 - **Usuarios Secundarios:** Consultores externos, docentes y estudiantes de ingeniería industrial, administración y turismo.
 - **Administradores:** Personal técnico a cargo del mantenimiento de la plataforma y administración de la base de datos MySQL.
 
@@ -142,7 +140,7 @@ La plataforma sigue una arquitectura **Cliente-Servidor Multi-Capa REST**. El cl
 ### 5.2. FUNCIONES DEL PRODUCTO
 1. **Gestión de Usuarios y Registro en MySQL:** Autenticación y registro global con hashing de contraseñas PBKDF2.
 2. **Aislamiento de Diagnósticos por Usuario:** Filtrado relacional estricto de empresas e historial por `user_id`.
-3. **Selección y Configuración de Norma:** Soporte para NTC 6001, NTC 6496 y NTC 6503 con dominios independientes (`iso6001.jarestrepo.com` y `sostenibilidad.jarestrepo.com`).
+3. **Selección y Configuración de Norma:** Soporte para la norma NTC 6001 desde su dominio oficial (`iso6001.jarestrepo.com`).
 4. **Registro Demográfico de la Organización:** Formulario de caracterización empresarial con autocompletado inteligente por ID.
 5. **Cuestionario Interactivo:** Evaluación por cláusulas con casillas de evidencias documentales y notas de auditoría.
 6. **Asistente de IA Contextual:** Chatbot flotante interactivo por cláusula para asesoría normativa en tiempo real.
@@ -158,7 +156,7 @@ La plataforma sigue una arquitectura **Cliente-Servidor Multi-Capa REST**. El cl
 | **RF-002** | Registro de Usuarios | Registrar nuevos usuarios en MySQL validando unicidad de nombre de usuario. | Alta |
 | **RF-003** | Aislamiento por `user_id` | Filtrar el dashboard y el historial únicamente para los registros del usuario activo. | Alta |
 | **RF-004** | Registro Demográfico | Capturar datos clave de la empresa (Nombre, NIT/ID, Sector, Ciudad, Responsable). | Alta |
-| **RF-005** | Selección de Estándar | Permitir evaluar NTC 6001, NTC 6496 o NTC 6503 de forma transparente. | Alta |
+| **RF-005** | Selección de Estándar | Permitir evaluar la NTC 6001 de forma transparente. | Alta |
 | **RF-006** | Evaluación por Cláusulas | Presentar preguntas según la estructura oficial de cada norma NTC. | Alta |
 | **RF-007** | Verificación de Evidencias | Marcar documentos de soporte disponibles por requisito. | Alta |
 | **RF-008** | Chat Asistente AI | Proveer un modal de diálogo inteligente con la API de Google Gemini. | Alta |
@@ -222,7 +220,7 @@ app.use((req, res, next) => {
 
 ## 8. DISEÑO DE BASE DE DATOS Y ESQUEMA RELACIONAL (MYSQL)
 
-La base de datos MySQL en Hostinger (`u683618217_sostenibilidad`) se compone de 3 tablas relacionales:
+La base de datos MySQL (configurable mediante las variables de entorno en `backend/.env`, ver `backend/environment.example`) se compone de 3 tablas relacionales principales:
 
 ### 8.1 Tabla `users`
 ```sql
@@ -321,7 +319,7 @@ La usabilidad y calidad general del sistema fueron evaluadas bajo la norma **ISO
 # ANEXO 1. MANUAL DEL USUARIO E INSTRUCCIONES DE DESPLIEGUE
 
 ### 1. Registro e Inicio de Sesión
-1. Ingrese a la plataforma desde su dominio (`https://sostenibilidad.jarestrepo.com` o `https://iso6001.jarestrepo.com`).
+1. Ingrese a la plataforma desde su dominio (`https://iso6001.jarestrepo.com`).
 2. Si es un usuario nuevo, haga clic en **"Registrarse"**, cree su usuario y contraseña.
 3. Ingrese sus credenciales para acceder a su panel privado.
 

@@ -1,7 +1,7 @@
 {
   "name": "diagnostico-calidad-backend",
   "version": "1.0.0",
-  "description": "Backend API REST para la Plataforma de Diagnóstico de Calidad Multi-Norma",
+  "description": "Backend API REST para la Plataforma de Diagnóstico de Calidad NTC 6001",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

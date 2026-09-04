@@ -1,6 +1,6 @@
 {
-  "name": "Diagnóstico de Calidad Multi-Norma",
-  "description": "Una herramienta para autoevaluar el cumplimiento con normas de calidad sostenibles (NTC 6496 para Gastronomía Sostenible, NTC 6503 para Turismo Sostenible), visualizar diagnósticos, ver historiales y recibir planes de acción generados por IA.",
+  "name": "Diagnóstico de Calidad NTC 6001",
+  "description": "Una herramienta para autoevaluar el sistema de gestión de la calidad de micro y pequeñas empresas según la norma NTC 6001, visualizar diagnósticos, ver historiales y recibir planes de acción generados por IA.",
   "requestFramePermissions": [],
   "prompt": ""
 }

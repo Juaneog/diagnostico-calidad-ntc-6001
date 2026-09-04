@@ -5,12 +5,11 @@ interface InteractiveGuideModalProps {
   onClose: () => void;
   guiaDeUsoContent: string;
   ntc6001Content: string;
-  ntc6496Content: string;
   appManualContent: string;
   onStartGuidedTour?: () => void;
 }
 
-type ActiveTab = 'guia_uso' | 'ntc_6001' | 'ntc_sostenible' | 'manual_app';
+type ActiveTab = 'guia_uso' | 'ntc_6001' | 'manual_app';
 
 const USER_GUIDE_STEPS = [
   { id: 1, title: '1. Introducción y Capacidades', icon: '📖' },
@@ -127,11 +126,9 @@ export const InteractiveGuideModal: React.FC<InteractiveGuideModalProps> = ({
   onClose,
   guiaDeUsoContent,
   ntc6001Content,
-  ntc6496Content,
   appManualContent,
   onStartGuidedTour
 }) => {
-  const isNtc6001 = import.meta.env.VITE_APP_MODE === 'ntc6001';
   const [activeTab, setActiveTab] = useState<ActiveTab>('guia_uso');
   const [selectedGuideStep, setSelectedGuideStep] = useState<number>(1);
   const [searchQuery, setSearchQuery] = useState('');
@@ -148,7 +145,7 @@ export const InteractiveGuideModal: React.FC<InteractiveGuideModalProps> = ({
   const [simChatMessages, setSimChatMessages] = useState<Array<{ sender: 'user' | 'ia'; text: string }>>([
     { sender: 'ia', text: '¡Hola! Soy tu asistente de Inteligencia Artificial especializado en normas de calidad. ¿En qué puedo ayudarte sobre esta cláusula?' }
   ]);
-  const [simScenario, setSimScenario] = useState<'calzado' | 'restaurante'>('calzado');
+  const [simScenario, setSimScenario] = useState<'calzado' | 'servicios'>('calzado');
 
   if (!isOpen) return null;
 
@@ -158,14 +155,12 @@ export const InteractiveGuideModal: React.FC<InteractiveGuideModalProps> = ({
         return guiaDeUsoContent;
       case 'ntc_6001':
         return ntc6001Content;
-      case 'ntc_sostenible':
-        return ntc6496Content;
       case 'manual_app':
         return appManualContent;
       default:
         return guiaDeUsoContent;
     }
-  }, [activeTab, guiaDeUsoContent, ntc6001Content, ntc6496Content, appManualContent]);
+  }, [activeTab, guiaDeUsoContent, ntc6001Content, appManualContent]);
 
   // Extract headings for Table of Contents
   const tocHeadings = useMemo(() => {
@@ -284,7 +279,7 @@ export const InteractiveGuideModal: React.FC<InteractiveGuideModalProps> = ({
             <span>📖</span> Guía de Uso Interactiva
           </button>
 
-          {isNtc6001 && <button
+          <button
             onClick={() => setActiveTab('ntc_6001')}
             className={`py-2.5 px-4 rounded-t-xl font-semibold text-xs sm:text-sm flex items-center gap-2 transition-all ${
               activeTab === 'ntc_6001'
@@ -293,18 +288,7 @@ export const InteractiveGuideModal: React.FC<InteractiveGuideModalProps> = ({
             }`}
           >
             <span>🏢</span> Manual NTC 6001 (PyMEs)
-          </button>}
-
-          {!isNtc6001 && <button
-            onClick={() => setActiveTab('ntc_sostenible')}
-            className={`py-2.5 px-4 rounded-t-xl font-semibold text-xs sm:text-sm flex items-center gap-2 transition-all ${
-              activeTab === 'ntc_sostenible'
-                ? 'bg-white text-teal-800 border-t-2 border-teal-600 shadow-sm'
-                : 'text-slate-600 hover:bg-slate-200/70 hover:text-slate-900'
-            }`}
-          >
-            <span>🌿</span> Manual NTC 6496 / 6503 (Sostenibilidad)
-          </button>}
+          </button>
 
           <button
             onClick={() => setActiveTab('manual_app')}
@@ -668,14 +652,14 @@ export const InteractiveGuideModal: React.FC<InteractiveGuideModalProps> = ({
                         👟 Ejemplo 1: Microempresa Calzado (NTC 6001)
                       </button>
                       <button
-                        onClick={() => setSimScenario('restaurante')}
+                        onClick={() => setSimScenario('servicios')}
                         className={`py-2 px-4 rounded-xl text-xs font-bold transition-all ${
-                          simScenario === 'restaurante'
+                          simScenario === 'servicios'
                             ? 'bg-teal-700 text-white shadow-md'
                             : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
                         }`}
                       >
-                        🍽️ Ejemplo 2: Restaurante Turístico (NTC 6496)
+                        🛠️ Ejemplo 2: PyME de Servicios (NTC 6001)
                       </button>
                     </div>
 
@@ -688,10 +672,10 @@ export const InteractiveGuideModal: React.FC<InteractiveGuideModalProps> = ({
                       </div>
                     ) : (
                       <div className="bg-teal-50 border border-teal-200 p-5 rounded-2xl text-slate-800 text-xs leading-relaxed space-y-2">
-                        <h5 className="font-bold text-sm text-teal-900">Caso: Restaurante Gastronómico (Sector Turismo)</h5>
-                        <p><strong>Configuración:</strong> Norma NTC 6496, Gastronomía Sostenible.</p>
-                        <p><strong>Resultado Obtenido:</strong> 82% global (Ambiental 85%, Sociocultural 90%, Económico 70%).</p>
-                        <p><strong>Acción IA Sugerida:</strong> Firmar convenio con gestor autorizado de Aceite Vegetal Usado (AVU) y medir consumo energético por comensal.</p>
+                        <h5 className="font-bold text-sm text-teal-900">Caso: Empresa de Servicios Técnicos (25 Empleados)</h5>
+                        <p><strong>Configuración:</strong> Norma NTC 6001, Sector Servicios.</p>
+                        <p><strong>Resultado Obtenido:</strong> 75% global (Liderazgo 85%, Planificación 80%, Evaluación y Mejora 55%).</p>
+                        <p><strong>Acción IA Sugerida:</strong> Implementar indicadores de satisfacción del cliente y programar revisiones gerenciales trimestrales documentadas.</p>
                       </div>
                     )}
                   </div>
@@ -725,8 +709,6 @@ export const InteractiveGuideModal: React.FC<InteractiveGuideModalProps> = ({
                 ? 'GUIA_DE_USO.md (ManField Model)'
                 : activeTab === 'ntc_6001'
                 ? 'MANUAL_NTC_6001.md'
-                : activeTab === 'ntc_sostenible'
-                ? 'MANUAL_NTC_6496_6503.md'
                 : 'MANUAL_APP.md'}
             </span>
           </div>

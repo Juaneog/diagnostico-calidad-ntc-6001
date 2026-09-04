@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Manual de uso de la Plataforma de Diagnóstico de Calidad NTC 6001.">
+  <title>Manual de uso | Calidad NTC 6001</title>
+  <style>
+    :root{--navy:#102a43;--blue:#087f8c;--cyan:#18b7bf;--ink:#17324a;--muted:#5c7083;--line:#d9e4eb;--wash:#f3f7fa;--warn:#fff6d9}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--wash);color:var(--ink);font-family:Inter,Segoe UI,Arial,sans-serif;line-height:1.62}
+    .hero{color:#fff;background:radial-gradient(circle at 82% 12%,rgba(24,183,191,.28),transparent 29%),linear-gradient(135deg,#102a43,#075d68);padding:48px 24px}.hero-inner,.shell{max-width:1180px;margin:auto}.brand{display:flex;align-items:center;gap:18px}.brand img{width:92px;background:#fff;border-radius:14px;padding:8px}.kicker{margin:0;color:#8be8e7;font-weight:800;letter-spacing:.1em;text-transform:uppercase;font-size:.78rem}h1{max-width:880px;margin:18px 0 12px;font-size:clamp(2.15rem,5vw,3.65rem);line-height:1.05}.lead{max-width:760px;margin:0;color:#dceff3;font-size:1.08rem}.meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}.meta span{padding:7px 12px;border:1px solid rgba(255,255,255,.2);border-radius:999px;background:rgba(255,255,255,.08);font-size:.85rem}
+    .shell{display:grid;grid-template-columns:250px minmax(0,1fr);gap:30px;padding:30px 22px 64px}.toc{position:sticky;top:16px;align-self:start;padding:20px;border:1px solid var(--line);border-radius:16px;background:#fff;box-shadow:0 8px 24px rgba(16,42,67,.06)}.toc strong{display:block;margin-bottom:10px}.toc a{display:block;padding:7px 0;color:#3f5e75;text-decoration:none;font-size:.92rem}.toc a:hover{color:var(--blue)}section{margin-bottom:24px;padding:28px;border:1px solid var(--line);border-radius:18px;background:#fff;box-shadow:0 7px 24px rgba(16,42,67,.05)}h2{margin:0 0 14px;font-size:1.65rem;line-height:1.2}h3{margin:24px 0 8px;font-size:1.08rem}p{margin:0 0 12px}ol,ul{padding-left:23px}li{margin:6px 0}
+    .route{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:20px 0}.route div{padding:14px 10px;border-radius:13px;background:#e9f6f8;text-align:center;font-size:.85rem;font-weight:750}.route b{display:block;color:var(--blue);font-size:1.2rem}.note{padding:14px 16px;border-left:4px solid var(--blue);border-radius:9px;background:#eaf7f8}.warning{padding:14px 16px;border-left:4px solid #e5a900;border-radius:9px;background:var(--warn)}
+    .scope{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}.scope div{padding:17px;border:1px solid var(--line);border-radius:14px;background:#fbfdfe}.scope strong{display:block;margin-bottom:5px;color:#075d68}figure{margin:18px 0 24px;overflow:hidden;border:1px solid var(--line);border-radius:15px;background:#f7fafb;box-shadow:0 9px 28px rgba(16,42,67,.09)}figure a{display:block}figure img{display:block;width:100%;max-height:720px;object-fit:contain;background:#edf3f6}figcaption{padding:12px 15px;color:var(--muted);font-size:.9rem;background:#fff}figcaption b{color:var(--ink)}table{width:100%;border-collapse:collapse;font-size:.93rem}th,td{padding:11px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{background:#eaf6f8}.checklist{columns:2;column-gap:30px}.checklist li{break-inside:avoid}.footer{padding:24px;background:var(--navy);color:#d8e7ef;text-align:center;font-size:.88rem}
+    @media(max-width:800px){.shell{display:block}.toc{position:static;margin-bottom:22px}.route{grid-template-columns:1fr 1fr}.scope{grid-template-columns:1fr}.checklist{columns:1}.brand{align-items:flex-start}.brand img{width:72px}section{padding:22px 18px}}
+    @media print{body{background:#fff}.hero{padding:28px 22px}.toc{display:none}.shell{display:block;padding:12px 0}.shell main{width:100%}section{box-shadow:none;break-inside:avoid}.footer{background:#fff;color:#555}}
+  </style>
+</head>
+<body>
+  <header class="hero"><div class="hero-inner"><div class="brand"><img src="Escudo-unicordoba.png" alt="Escudo de la Universidad de Córdoba"><div><p class="kicker">Universidad de Córdoba · Facultad de Ingenierías</p><h1>Manual de uso — Diagnóstico de Calidad NTC 6001</h1><p class="lead">Guía operativa para evaluar el sistema de gestión de una micro, pequeña o mediana empresa, interpretar sus brechas y organizar acciones de mejora.</p></div></div><div class="meta"><span>Versión 1.0</span><span>Agosto de 2026</span><span>NTC 6001</span><span>Micro y pequeñas empresas</span></div></div></header>
+
+  <div class="shell">
+    <nav class="toc" aria-label="Contenido"><strong>Contenido</strong><a href="#objetivo">1. Objetivo y preparación</a><a href="#acceso">2. Acceso y registro</a><a href="#panel">3. Panel principal</a><a href="#diagnostico">4. Nuevo diagnóstico</a><a href="#cuestionario">5. Cuestionario</a><a href="#resultados">6. Resultados y plan</a><a href="#ayuda">7. Ayuda y seguridad</a></nav>
+    <main>
+      <section id="objetivo">
+        <h2>1. Objetivo y preparación</h2>
+        <p>La plataforma permite valorar el sistema de gestión de una empresa frente a la NTC 6001 y convertir los hallazgos en una ruta de fortalecimiento organizacional.</p>
+        <div class="scope"><div><strong>Dirección</strong>Planeación, liderazgo, seguimiento y toma de decisiones.</div><div><strong>Operación</strong>Gestión comercial, procesos, entrega del producto o servicio y control operacional.</div><div><strong>Apoyo</strong>Talento humano, recursos, información y gestión financiera.</div></div>
+        <h3>Antes de comenzar</h3><ul><li>Use un navegador actualizado y una conexión estable.</li><li>Tenga disponibles NIT o identificación, ubicación, sector, tamaño y responsable del informe.</li><li>Reúna procedimientos, registros comerciales, perfiles de cargo, controles financieros, indicadores y evidencias operativas.</li><li>La clave Gemini es opcional; habilita ayuda contextual y generación asistida del plan de acción.</li></ul>
+        <div class="route"><div><b>1</b>Ingresar</div><div><b>2</b>Caracterizar</div><div><b>3</b>Evaluar</div><div><b>4</b>Mejorar</div></div>
+        <figure><a href="manual-uso-assets/01-portada-ntc6001.png" target="_blank" rel="noopener"><img src="manual-uso-assets/01-portada-ntc6001.png" alt="Portada de la plataforma NTC 6001"></a><figcaption><b>Pantalla 1.</b> Portada institucional de la versión exclusiva NTC 6001. Seleccione la imagen para ampliarla.</figcaption></figure>
+      </section>
+
+      <section id="acceso">
+        <h2>2. Acceso y registro</h2>
+        <ol><li>Seleccione <strong>Ingresar</strong> o <strong>Comenzar Autoevaluación</strong> en la portada.</li><li>Escriba el usuario y la contraseña registrados.</li><li>Seleccione <strong>Iniciar sesión</strong>.</li><li>Si aún no tiene cuenta, abra <strong>Crear una cuenta (Registrarse)</strong>, defina sus credenciales y confirme.</li></ol>
+        <div class="warning"><strong>Protección de acceso:</strong> no comparta su contraseña ni la incluya en informes, capturas o repositorios. El acceso se valida mediante el backend.</div>
+        <figure><a href="manual-uso-assets/02-ingreso-ntc6001.png" target="_blank" rel="noopener"><img src="manual-uso-assets/02-ingreso-ntc6001.png" alt="Formulario de ingreso NTC 6001"></a><figcaption><b>Pantalla 2.</b> Inicio de sesión.</figcaption></figure>
+        <figure><a href="manual-uso-assets/03-registro-ntc6001.png" target="_blank" rel="noopener"><img src="manual-uso-assets/03-registro-ntc6001.png" alt="Formulario de registro NTC 6001"></a><figcaption><b>Pantalla 3.</b> Registro de un usuario nuevo.</figcaption></figure>
+      </section>
+
+      <section id="panel">
+        <h2>3. Panel principal</h2>
+        <p>Después de autenticarse encontrará los diagnósticos del usuario y los siguientes accesos:</p>
+        <ul><li><strong>+ Nuevo Diagnóstico:</strong> abre directamente la caracterización NTC 6001.</li><li><strong>Guía de Uso & Manuales:</strong> abre la ayuda integrada y el manual normativo.</li><li><strong>Tour Guiado:</strong> explica los controles principales dentro de la aplicación.</li><li><strong>Clave Gemini:</strong> habilita asistencia y generación del plan con IA; es opcional.</li></ul>
+        <figure><a href="manual-uso-assets/04-panel-ntc6001.png" target="_blank" rel="noopener"><img src="manual-uso-assets/04-panel-ntc6001.png" alt="Panel principal NTC 6001"></a><figcaption><b>Pantalla 4.</b> Panel de diagnósticos de la versión NTC 6001.</figcaption></figure>
+      </section>
+
+      <section id="diagnostico">
+        <h2>4. Crear un nuevo diagnóstico</h2>
+        <p>Esta versión trabaja únicamente con NTC 6001; por eso no presenta un selector de normas.</p>
+        <ol><li>Seleccione <strong>+ Nuevo Diagnóstico</strong>.</li><li>Ingrese el ID o NIT de la empresa. Si ya existe, la plataforma puede recuperar sus datos.</li><li>Complete nombre, sector, departamento, ciudad y fecha de fundación.</li><li>Registre el responsable del informe y el tamaño de la empresa.</li><li>Revise la información y seleccione <strong>Continuar al Cuestionario</strong>.</li></ol>
+        <div class="note"><strong>Identificación consistente:</strong> use siempre el mismo ID o NIT para que el historial y las comparaciones correspondan a la misma organización.</div>
+        <figure><a href="manual-uso-assets/05-datos-organizacion-ntc6001.png" target="_blank" rel="noopener"><img src="manual-uso-assets/05-datos-organizacion-ntc6001.png" alt="Formulario de datos de organización NTC 6001"></a><figcaption><b>Pantalla 5.</b> Caracterización de la empresa evaluada con NTC 6001.</figcaption></figure>
+      </section>
+
+      <section id="cuestionario">
+        <h2>5. Diligenciar el cuestionario</h2>
+        <p>La evaluación está organizada por cláusulas de la NTC 6001. En cada requisito seleccione el estado real, confirme evidencias y añada observaciones útiles para el plan de mejora.</p>
+        <table><thead><tr><th>Estado</th><th>Uso recomendado</th></tr></thead><tbody><tr><td><strong>Cumple</strong></td><td>El requisito está implementado y se puede demostrar.</td></tr><tr><td><strong>Parcialmente</strong></td><td>Hay avances, pero faltan controles, formalización o registros.</td></tr><tr><td><strong>No cumple</strong></td><td>No existe implementación o soporte verificable.</td></tr><tr><td><strong>No aplica</strong></td><td>El requisito no corresponde al contexto; documente la justificación.</td></tr></tbody></table>
+        <h3>Cómo responder con calidad</h3><ul><li>Consulte a los responsables de dirección, operación, comercial, talento humano y finanzas.</li><li>Marque solo documentos y registros que hayan sido comprobados.</li><li>Use los comentarios para explicar brechas, responsables y próximos pasos.</li><li>Puede abrir el chat contextual de una cláusula para solicitar ejemplos; valide siempre la respuesta de la IA.</li></ul>
+      </section>
+
+      <section id="resultados">
+        <h2>6. Resultados, plan de acción e informe</h2>
+        <ol><li>Cuando termine la evaluación, seleccione <strong>Finalizar Diagnóstico</strong>.</li><li>Revise el porcentaje global, el gráfico y el resultado de cada cláusula.</li><li>Identifique primero los requisitos en <strong>No cumple</strong> y <strong>Parcialmente</strong>.</li><li>Si configuró Gemini, genere el plan de acción y revise prioridades, recursos y plazos sugeridos.</li><li>Guarde el diagnóstico y descargue el informe PDF.</li><li>En futuras evaluaciones, use el historial para comprobar la evolución de la empresa.</li></ol>
+        <div class="note"><strong>Uso responsable:</strong> el autodiagnóstico orienta decisiones internas, pero no equivale por sí solo a una auditoría de certificación.</div>
+      </section>
+
+      <section id="ayuda">
+        <h2>7. Ayuda, solución de problemas y seguridad</h2>
+        <figure><a href="manual-uso-assets/06-guia-integrada-ntc6001.png" target="_blank" rel="noopener"><img src="manual-uso-assets/06-guia-integrada-ntc6001.png" alt="Centro de guías NTC 6001"></a><figcaption><b>Pantalla 6.</b> Centro de guías con acceso exclusivo al manual NTC 6001.</figcaption></figure>
+        <table><thead><tr><th>Situación</th><th>Qué hacer</th></tr></thead><tbody><tr><td>No puede iniciar sesión</td><td>Verifique usuario, contraseña, conexión y disponibilidad del backend. No use credenciales de ejemplo.</td></tr><tr><td>La IA no responde</td><td>Confirme que la clave Gemini sea válida y que exista conexión a internet.</td></tr><tr><td>No aparecen diagnósticos</td><td>Compruebe que inició sesión con el usuario correcto y que el backend responde.</td></tr><tr><td>El PDF no se descarga</td><td>Permita descargas y ventanas emergentes para el sitio.</td></tr></tbody></table>
+        <h3>Lista de verificación antes de cerrar</h3><ul class="checklist"><li>Identificación de empresa correcta.</li><li>Datos de caracterización completos.</li><li>Todas las cláusulas respondidas.</li><li>Evidencias verificadas.</li><li>Comentarios registrados.</li><li>Resultados revisados.</li><li>Plan de acción validado.</li><li>Diagnóstico guardado o exportado.</li></ul>
+      </section>
+    </main>
+  </div>
+  <footer class="footer">Manual de uso · Plataforma de Diagnóstico de Calidad NTC 6001 · Universidad de Córdoba · 2026</footer>
+</body>
+</html>

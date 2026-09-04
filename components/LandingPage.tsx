@@ -7,8 +7,6 @@ interface LandingPageProps {
 }
 
 const LandingPage: React.FC<LandingPageProps> = ({ onEnterPlatform, escudoSrc, isAuthenticated }) => {
-  const isNtc6001 = import.meta.env.VITE_APP_MODE === 'ntc6001';
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-teal-950 to-slate-950 text-white relative overflow-hidden flex flex-col justify-between">
       {/* Decorative background glow circles */}
@@ -102,10 +100,10 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnterPlatform, escudoSrc, i
         {/* Platform Core Standards Section */}
         <div className="w-full mt-24 pt-12 border-t border-white/10">
           <h4 className="text-xs uppercase font-extrabold tracking-widest text-emerald-400 mb-8">Normativas de Calidad Soportadas</h4>
-          <div className={`grid ${isNtc6001 ? 'md:grid-cols-1 max-w-xl mx-auto' : 'md:grid-cols-2'} gap-6 text-left`}>
-            
+          <div className="grid md:grid-cols-1 max-w-xl mx-auto gap-6 text-left">
+
             {/* Card NTC 6001 */}
-            {isNtc6001 && <div className="bg-white/5 border border-white/10 hover:border-emerald-500/30 p-6 rounded-2xl backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-emerald-500/5 group">
+            <div className="bg-white/5 border border-white/10 hover:border-emerald-500/30 p-6 rounded-2xl backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-emerald-500/5 group">
               <div className="h-10 w-10 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 font-bold mb-4 group-hover:bg-emerald-500/20 transition-colors">
                 6001
               </div>
@@ -113,29 +111,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onEnterPlatform, escudoSrc, i
               <p className="text-slate-400 text-xs leading-relaxed">
                 Establece los requisitos para estructurar un sistema de gestión en micro, pequeñas y medianas empresas (MiPymes), optimizando su competitividad en el mercado.
               </p>
-            </div>}
-
-            {/* Card NTC 6496 */}
-            {!isNtc6001 && <div className="bg-white/5 border border-white/10 hover:border-emerald-500/30 p-6 rounded-2xl backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-emerald-500/5 group">
-              <div className="h-10 w-10 rounded-lg bg-teal-500/10 border border-teal-500/20 flex items-center justify-center text-teal-400 font-bold mb-4 group-hover:bg-teal-500/20 transition-colors">
-                6496
-              </div>
-              <h5 className="font-bold text-lg mb-2 text-white group-hover:text-teal-300 transition-colors">NTC 6496</h5>
-              <p className="text-slate-400 text-xs leading-relaxed">
-                Norma técnica de sostenibilidad para establecimientos gastronómicos. Define lineamientos de compras verdes, ahorro de recursos y fomento sociocultural.
-              </p>
-            </div>}
-
-            {/* Card NTC 6503 */}
-            {!isNtc6001 && <div className="bg-white/5 border border-white/10 hover:border-emerald-500/30 p-6 rounded-2xl backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-emerald-500/5 group">
-              <div className="h-10 w-10 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 font-bold mb-4 group-hover:bg-cyan-500/20 transition-colors">
-                6503
-              </div>
-              <h5 className="font-bold text-lg mb-2 text-white group-hover:text-cyan-300 transition-colors">NTC 6503</h5>
-              <p className="text-slate-400 text-xs leading-relaxed">
-                Requisitos de sostenibilidad turística aplicables a establecimientos de alojamiento y hospedaje, integrando gestión ambiental, social y económica.
-              </p>
-            </div>}
+            </div>
 
           </div>
         </div>

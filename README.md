@@ -40,6 +40,7 @@ npm run build
 
 ## Documentación
 
+- [`MANUAL_DE_USO_NTC6001.html`](MANUAL_DE_USO_NTC6001.html): manual visual y operativo de la aplicación.
 - `MANUAL_NTC_6001.md`: manual normativo.
 - `backend/README.md`: configuración de la API y la base de datos.
 

@@ -1,4 +1,4 @@
-# Backend de la Plataforma de Diagnóstico de Calidad Multi-Norma
+# Backend de la Plataforma de Diagnóstico de Calidad NTC 6001
 
 Este es el servidor backend desarrollado en **Node.js/Express** para almacenar de forma persistente los diagnósticos y las empresas en una base de datos **MySQL**, reemplazando el uso de `localStorage` del navegador.
 

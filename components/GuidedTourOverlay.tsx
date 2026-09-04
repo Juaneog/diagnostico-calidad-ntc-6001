@@ -27,11 +27,11 @@ const TOUR_STEPS: TourStep[] = [
     actionHint: 'Presiona "Siguiente" para ver cómo seleccionar la norma técnica.'
   },
   {
-    title: '3. Selección de Estándar Normativo',
+    title: '3. Estándar Normativo',
     icon: '📜',
     targetId: 'standard-selector',
-    description: 'Selecciona la norma aplicable a tu organización:\n• NTC 6001 (PyMEs generales)\n• NTC 6496 (Establecimientos gastronómicos)\n• NTC 6503 (Servicios de alojamiento y hospedería).',
-    tip: 'Importante: La app adaptará las preguntas y las evidencias sugeridas según la norma elegida.',
+    description: 'La plataforma evalúa tu organización con la norma:\n• NTC 6001 (Sistema de Gestión para Micro y Pequeñas Empresas).',
+    tip: 'Importante: Las preguntas y las evidencias sugeridas están alineadas con el articulado de la NTC 6001.',
     actionHint: 'Presiona "Siguiente" para conocer el cuestionario y las evidencias.'
   },
   {
