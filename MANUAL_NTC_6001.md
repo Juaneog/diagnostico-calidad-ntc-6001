@@ -2,7 +2,7 @@
 ## Sistema de Gestión para Micro y Pequeñas Empresas (PyMEs)
 **Especificación Normativa, Evaluación de Cumplimiento, Asistencia con IA y Manual de Aplicación**  
 **Modelo de Documentación Adaptado:** ManField Software Documentation Standard (ISO/IEC 25010 & IEEE Style)  
-**Versión:** 2.0  
+**Versión:** 3.0 (Actualizada con Autenticación de Usuarios y Persistencia MySQL)  
 **Fecha:** 2026  
 
 ---
@@ -132,6 +132,8 @@ Indicadores de gestión, auditorías internas, control de salidas no conformes y
 - **RF-6001-02:** Verificación de evidencias documentales específicas de PyME (Facturas, Contratos, Fichas de Cliente, Formatos SST).
 - **RF-6001-03:** Asistencia de IA entrenada en contexto de microempresas.
 - **RF-6001-04:** Renderizado de gráficos de radar por los 7 ejes de la NTC 6001.
+- **RF-6001-05:** Registro e inicio de sesión de usuarios con contraseñas protegidas mediante derivación de claves PBKDF2 con sal aleatoria (`backend/routes/auth.js`).
+- **RF-6001-06:** Persistencia de empresas y diagnósticos históricos en base de datos MySQL, aislados por cuenta de usuario (`user_id`), con consulta del historial desde el panel principal.
 
 ---
 
@@ -183,23 +185,26 @@ La usabilidad del módulo NTC 6001 obtuvo una calificación promedio de **4.84 /
 
 La arquitectura cumple rigurosamente con los lineamientos del estándar ManField:
 - **Calidad del Software:** 4.90/5.00 en la matriz ISO 25010.
-- **Seguridad:** Datos resguardados en almacenamiento local del cliente.
+- **Seguridad:** Autenticación en servidor Express con contraseñas PBKDF2 + salt; empresas y diagnósticos almacenados en MySQL y aislados por usuario autenticado (`user_id`).
 - **Exportación:** Reporte completo en PDF imprimible.
 
 ---
 
 # ANEXO 1. GUÍA OPERATIVA DEL AUDITOR / EVALUADOR NTC 6001
 
-### Paso 1: Caracterización de la PyME
+### Paso 1: Creación de Cuenta e Ingreso al Sistema
+En la pantalla de inicio presione **"Registrarse"** y cree su cuenta con nombre de usuario y contraseña (la contraseña se protege con cifrado PBKDF2 en el servidor). Si ya tiene cuenta, ingrese sus credenciales y presione **"Ingresar"**. Cada evaluador accede únicamente a las empresas y diagnósticos asociados a su propia cuenta.
+
+### Paso 2: Caracterización de la PyME
 Ingrese el Nombre, ID de la empresa, Sector Industrial, Número de Empleados y Responsable del Diagnóstico.
 
-### Paso 2: Evaluación por Cláusulas
+### Paso 3: Evaluación por Cláusulas
 Recorra los 7 ejes de la NTC 6001 (Dirección, Liderazgo, Comercial, Operaciones, Financiera, Humana y Mejora).
 - Seleccione el estado real de cumplimiento (Cumple, Parcialmente, No Cumple).
 - Marque las casillas de evidencias que la PyME posee físicamente o en digital.
 
-### Paso 3: Asistencia de IA
+### Paso 4: Asistencia de IA
 Si tiene duda sobre cómo aplica un requisito (por ejemplo, en Gestión Financiera o SST), presione el botón de chat junto a la pregunta para recibir asistencia inmediata de la Inteligencia Artificial.
 
-### Paso 4: Plan de Acción y Reporte
-Genere el plan de acción en la pantalla de resultados y descargue el informe completo en formato PDF para iniciar la implementación de mejoras en la empresa.
+### Paso 5: Plan de Acción, Reporte e Historial
+Genere el plan de acción en la pantalla de resultados y descargue el informe completo en formato PDF para iniciar la implementación de mejoras en la empresa. Cada diagnóstico queda guardado en su historial, lo que permite comparar la evolución del cumplimiento entre evaluaciones sucesivas.
