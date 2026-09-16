@@ -27,3 +27,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Temp test artifacts (Chrome profile, CDP scripts, logs)
+temp_run/
+temp_dev.log
