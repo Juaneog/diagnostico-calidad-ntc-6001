@@ -9,9 +9,9 @@ export default defineConfig(({ mode }) => {
       define: {
         'import.meta.env.VITE_APP_MODE': JSON.stringify(appMode),
         'import.meta.env.VITE_APP_TITLE': JSON.stringify(appTitle),
-        'import.meta.env.VITE_API_BASE_URL': JSON.stringify(env.VITE_API_BASE_URL || ''),
-        'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),
-        'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY)
+        'import.meta.env.VITE_API_BASE_URL': JSON.stringify(env.VITE_API_BASE_URL || 'https://api.jarestrepo.com/api'),
+        'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY || ''),
+        'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY || '')
       },
       resolve: {
         alias: {

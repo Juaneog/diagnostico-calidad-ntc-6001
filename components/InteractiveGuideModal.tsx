@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 
 interface InteractiveGuideModalProps {
   isOpen: boolean;
@@ -163,8 +163,6 @@ export const InteractiveGuideModal: React.FC<InteractiveGuideModalProps> = ({
   ]);
   const [simScenario, setSimScenario] = useState<'calzado' | 'servicios'>('calzado');
 
-  if (!isOpen) return null;
-
   const currentMarkdownContent = useMemo(() => {
     switch (activeTab) {
       case 'guia_uso':
@@ -246,6 +244,8 @@ export const InteractiveGuideModal: React.FC<InteractiveGuideModalProps> = ({
     score += evCheckedCount * 13.33;
     return Math.min(100, Math.round(score));
   }, [simAnswer, simEvidences]);
+
+  if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-slate-950/80 backdrop-blur-md animate-fade-in">

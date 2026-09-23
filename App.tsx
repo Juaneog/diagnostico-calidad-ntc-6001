@@ -122,7 +122,8 @@ const LoginScreen: React.FC<{
   onSubmit: () => void;
   error: string;
   onBackToLanding?: () => void;
-}> = ({ username, password, onUsernameChange, onPasswordChange, onSubmit, error, onBackToLanding }) => {
+  onOpenGuideModal?: () => void;
+}> = ({ username, password, onUsernameChange, onPasswordChange, onSubmit, error, onBackToLanding, onOpenGuideModal }) => {
   const [isRegister, setIsRegister] = useState(false);
   const [regUsername, setRegUsername] = useState('');
   const [regPassword, setRegPassword] = useState('');
@@ -214,6 +215,15 @@ const LoginScreen: React.FC<{
               >
                 Crear una cuenta (Registrarse)
               </button>
+              {onOpenGuideModal && (
+                <button
+                  type="button"
+                  onClick={onOpenGuideModal}
+                  className="mt-1 text-cyan-700 font-semibold hover:text-cyan-900 transition text-xs flex items-center gap-1.5 bg-cyan-50 px-3.5 py-2 rounded-xl border border-cyan-200 shadow-sm"
+                >
+                  <span>📖</span> Guía de Uso & Manuales
+                </button>
+              )}
               {onBackToLanding && (
                 <button
                   type="button"
@@ -1124,33 +1134,29 @@ const App: React.FC = () => {
     }
   }
 
-  if (step === 'landing') {
-    return (
-      <LandingPage
-        onEnterPlatform={() => setStep('dashboard')}
-        escudoSrc={EscudoUnicordoba}
-        isAuthenticated={isAuthenticated}
-      />
-    );
-  }
-
-  if (!isAuthenticated) {
-    return (
-      <LoginScreen
-        username={loginUsername}
-        password={loginPassword}
-        onUsernameChange={setLoginUsername}
-        onPasswordChange={setLoginPassword}
-        onSubmit={handleLoginSubmit}
-        error={loginError}
-        onBackToLanding={() => setStep('landing')}
-      />
-    );
-  }
-
   return (
     <div className="min-h-screen bg-gray-100 text-gray-800">
-      <main className="container mx-auto px-4 py-8 md:py-12">
+      {step === 'landing' ? (
+        <LandingPage
+          onEnterPlatform={() => setStep('dashboard')}
+          onOpenGuideModal={handleOpenGuideModal}
+          escudoSrc={EscudoUnicordoba}
+          isAuthenticated={isAuthenticated}
+        />
+      ) : !isAuthenticated ? (
+        <LoginScreen
+          username={loginUsername}
+          password={loginPassword}
+          onUsernameChange={setLoginUsername}
+          onPasswordChange={setLoginPassword}
+          onSubmit={handleLoginSubmit}
+          error={loginError}
+          onBackToLanding={() => setStep('landing')}
+          onOpenGuideModal={handleOpenGuideModal}
+        />
+      ) : (
+        <>
+          <main className="container mx-auto px-4 py-8 md:py-12">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8 print:hidden">
           <div>
             <h1 className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-cyan-600">
@@ -1195,6 +1201,8 @@ const App: React.FC = () => {
        <footer className="text-center py-6 mt-8 border-t border-gray-200 print:hidden">
          <p className="text-sm text-gray-500">&copy; {new Date().getFullYear()} Plataforma de Diagnóstico. Potenciado por Gemini.</p>
        </footer>
+       </>
+      )}
        
        {(step === 'questionnaire' || (step === 'results' && results?.actionPlan) || step === 'viewing_report') && (
             <button
